@@ -225,7 +225,6 @@ function printConsole(text) {
   } else {
     console.innerHTML = "<p> >_ " + text + "</p>";
   }
-
 }
 
 function getRoverSelected() {
