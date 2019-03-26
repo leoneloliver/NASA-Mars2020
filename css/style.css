@@ -1,0 +1,323 @@
+body {
+  background: #000;
+  background-image: url(../images/bg-space.jpg);
+  background-repeat: no-repeat;
+  margin: 20px;
+  height: 96vh;
+  background-size: cover;
+}
+
+h4 {
+  margin-top: 8px;
+}
+
+#header {
+  text-align: right;
+  position: absolute;
+  display: block;
+  width: 804px;
+  z-index: 999;
+  padding: 5px;
+  margin-top: -12px;
+}
+
+#header img {
+  width: 45px;
+}
+
+#map {
+  border: 1px solid #5e9aad;
+  margin-left: -1px;
+  margin-top: -1px;
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, #5ea2c73d 1px, transparent 1px), linear-gradient(to bottom, #5ea2c73d 1px, transparent 1px);
+  background-color: #162a2e;
+  box-shadow: 1px 1px 29px #5fa1b7;
+  opacity: 0.8;
+}
+
+.mars #map {
+  background-image: linear-gradient(to right, #5ea2c7 1px, transparent 1px), linear-gradient(to bottom, #5ea2c7 1px, transparent 1px);
+  background-color: #162a2e;
+  box-shadow: 1px 1px 29px #5fa1b7;
+  opacity: 0.7;
+}
+
+#mapbg {
+  background-image: url(../images/mars-soil.jpg);
+  height: 500px;
+  width: 600px;
+  position: absolute;
+  margin-top: -562px;
+  z-index: -1;
+  display: none;
+}
+
+.mars #mapbg {
+  display: block;
+}
+
+#map .rover {
+  position: absolute;
+  transition: all .1s;
+}
+
+#map #rover1:after {
+  content: '1';
+  background-image: url(../images/rover-triangle.png);
+  background-size: cover;
+}
+
+#map #rover2:after {
+  content: '2';
+  background-image: url(../images/rover-triangle.png);
+  background-size: cover;
+}
+
+#map #rover3:after {
+  content: '3';
+  background-image: url(../images/rover-triangle.png);
+  background-size: cover;
+  ;
+}
+
+#map #rover4:after {
+  content: '4';
+  background-image: url(../images/rover-triangle.png);
+  background-size: cover;
+}
+
+#map .rover:after {
+  height: 87%;
+  width: 95%;
+  position: relative;
+  display: block;
+  text-align: center;
+  color: #0a181b;
+  line-height: 24px;
+  font-size: 0.9em;
+  margin-top: 2px;
+  font-family: monospace;
+  font-weight: bolder;
+}
+
+.up {
+  transform: rotate(0deg);
+  transition: all .5s;
+}
+
+.down {
+  transform: rotate(180deg);
+  transition: all .5s;
+}
+
+.right {
+  transform: rotate(90deg);
+  transition: all .5s;
+}
+
+.left {
+  transform: rotate(-90deg);
+  transition: all .5s;
+}
+
+.explode:after {
+  background-image: url(../images/destroy.gif) !important;
+}
+
+div#controls {
+  position: absolute;
+  height: 487px;
+  background: #0c1a1e;
+  left: 630px;
+  top: 0px;
+  opacity: 0.9;
+  color: #7eb5c1;
+  font-family: monospace;
+  padding: 48px 20px;
+  font-size: 1em;
+}
+
+input,
+select {
+  background: #25434a;
+  border: 1px solid #65a7ba;
+  font-size: 1.1em;
+  padding: 3px;
+  color: #98dff2;
+  text-align: center;
+  width: 22%;
+}
+
+hr {
+  border: 1px solid #467683;
+  width: 100%;
+}
+
+button {
+  width: 50%;
+  margin-top: 8px;
+  padding: 7px;
+  display: block;
+  background: #81a2ab;
+  border: 1px solid #78c2d2;
+  color: #0c1619;
+  border-radius: 5px;
+}
+
+.brnRover {
+  width: 21%;
+  float: left;
+  border: 1px solid #61c6d521;
+  margin-right: 8px;
+  text-align: center;
+  padding: 7px 0px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  height: 32px;
+}
+
+.brnRover.active {
+  background: #81a2ab;
+  border: 1px solid #8bdde3;
+  box-shadow: 0px 0px 12px #9bdde3;
+}
+
+.brnRover img {
+  width: 38px;
+}
+
+.brnRover.active img {
+  filter: brightness(50%);
+}
+
+div#console {
+  width: 599px;
+  height: 50px;
+  border: 1px solid #4c9398;
+  margin-top: 10px;
+  background: #0a171b;
+  opacity: 0.9;
+  color: #3e8e9e;
+  font-family: monospace;
+}
+
+#console p {
+  padding: 5px
+}
+
+.btn-sm {
+  width: 23%;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.lr-c {
+  height: 45px;
+}
+
+p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+#showSoil,
+#showCamera {
+  width: 30%;
+  text-align: center;
+  border: 1px solid #61c6d521;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#showSoil.click,
+#showCamera.click {
+  background: #81a2ab;
+  border: 1px solid #fffdfd;
+  color: #333;
+}
+
+div#camera {
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #000;
+  display: none;
+}
+
+div#camera.show {
+  display: block;
+}
+
+div#camera img {
+  width: 100%;
+  margin-top: 100px
+}
+
+.special-btn {
+  width: 30%;
+  float: left;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.container-xy {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+#direction {
+  width: 50%;
+  margin-top: 8px;
+}
+
+.in-label {
+  position: absolute;
+  margin: 6px;
+}
+
+span.danger {
+  color: #f5f5f5;
+  background: #9a0606;
+  padding: 0px 7px;
+}
+
+span.warning {
+  color: #04171b;
+  background: #ffd24e;
+  padding: 0px 7px;
+}
+
+span a {
+  text-transform: capitalize;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.bye-msg {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@-webkit-keyframes blinker {
+  from {
+    opacity: 1.0;
+  }
+  to {
+    opacity: 0.0;
+  }
+}
+
+.blink {
+  text-decoration: blink;
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.6s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+}
