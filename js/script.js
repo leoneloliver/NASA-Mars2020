@@ -7,7 +7,10 @@ const maxY = 29;
 const minXY = 0;
 const timetoRemove = 3000;
 let howManyExploded = 0;
-const msg = ['X should be between ' + minXY + ' and ' + maxX + ' and Y between ' + minXY + ' and ' + maxY + '', ''];
+const msg = ['X should be between ' + minXY + ' and ' + maxX + ' and Y between ' + minXY + ' and ' + maxY + ''];
+const msgDanger = ['has been destroyed it was driven off the plateau.','rover(s) avalible.','need to be landed first!',' landed!'];
+const msgEnd = ['You failed on the Rover Mars Mission.'];
+
 const rover = document.getElementsByClassName('rover');
 const map = document.getElementById('map');
 let guyLeft = marginBody;
@@ -62,7 +65,7 @@ function move() {
         btnMove.classList.remove('disabled');
         getRoverSelected();
       }, timetoRemove);
-      printConsole("<span class='danger'><a>[" + idRover + "]</a> has been destroyed - Only " + (4 - howManyExploded) + " rover(s) avalible.</span>");
+      printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
       roverLeft += 20;
       rover[c].style.left = roverLeft + 'px';
@@ -82,7 +85,7 @@ function move() {
         btnMove.classList.remove('disabled');
         getRoverSelected();
       }, timetoRemove);
-      printConsole("<span class='danger'><a>[" + idRover + "]</a> has been destroyed - Only " + (4 - howManyExploded) + " rover(s) avalible.</span>");
+      printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
       roverLeft -= 20;
       rover[c].style.left = roverLeft + 'px';
@@ -102,7 +105,7 @@ function move() {
         btnMove.classList.remove('disabled');
         getRoverSelected();
       }, timetoRemove);
-      printConsole("<span class='danger'><a>[" + idRover + "]</a> has been destroyed - Only " + (4 - howManyExploded) + " rover(s) avalible.</span>");
+      printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
       roverTop += 20;
       rover[c].style.top = roverTop + 'px';
@@ -122,14 +125,14 @@ function move() {
         btnMove.classList.remove('disabled');
         getRoverSelected();
       }, timetoRemove);
-      printConsole("<span class='danger'><a>[" + idRover + "]</a> has been destroyed - Only " + (4 - howManyExploded) + " rover(s) avalible.</span>");
+      printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
       roverTop -= 20;
       rover[c].style.top = roverTop + 'px';
     }
   } else {
     let idRover = rover[c].id;
-    printConsole("<span class='danger'><a>[" + idRover + "]</a> need to be landed first!</span>");
+    printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[2]+"</span>");
   }
 }
 
@@ -155,7 +158,7 @@ function land() {
     rover[c].style.top = x + marginBody + 'px';
     rover[c].style.left = y + marginBody + 'px';
     let idRover = rover[c].id;
-    printConsole("<span><a>[" + idRover + "]</a> landed!</span>");
+    printConsole("<span><a>[" + idRover + "]</a> "+msgDanger[3]+"</span>");
   }
   getRoverSelected();
 }
@@ -219,7 +222,7 @@ function printConsole(text) {
   const controls = document.getElementById('controls');
   if (howManyExploded >= 4) {
     console.innerHTML = "<p> >_ " + text + "</p>";
-    controls.innerHTML = "<div class='container-xy'><p class='bye-msg'>You failed on the Rover Mars Mission.</p><div class='fail'><img src='images/astronaut.gif'></div><div>";
+    controls.innerHTML = "<div class='container-xy'><p class='bye-msg'>"+msgEnd[0]+"</p><div class='fail'><img src='images/astronaut.gif'></div><div>";
   } else if (howManyExploded == 3) {
     console.innerHTML = "<p class='blink'> >_ " + text + "</p>";
   } else {
