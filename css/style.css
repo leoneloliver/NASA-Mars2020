@@ -171,6 +171,7 @@ button {
   background: #81a2ab;
   border: 1px solid #78c2d2;
   color: #0c1619;
+  cursor: pointer;
 }
 
 .brnRover {
@@ -279,6 +280,7 @@ div#camera img {
 #direction {
   width: 50%;
   margin-top: 8px;
+  cursor: pointer;
 }
 
 .in-label {
