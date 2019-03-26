@@ -99,6 +99,16 @@ h4 {
   margin-top: 2px;
   font-family: monospace;
   font-weight: bolder;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all .3s;
+}
+
+#map .moving:after {
+  filter: grayscale(0%);
+  opacity: 9.9;
+  box-shadow: 0px 1px 0px 0px #62ff00;
+  transition: all .3s;
 }
 
 .up {
@@ -320,4 +330,17 @@ span a {
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-direction: alternate;
+}
+
+.fail{
+  width: 100%;
+  text-align: center;
+  background: #000;
+  height: 330px;
+  padding-top: 100px;
+  margin-top: 10px;
+}
+
+.fail img{
+  width: 100px;
 }

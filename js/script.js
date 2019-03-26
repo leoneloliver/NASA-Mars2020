@@ -26,7 +26,6 @@ Array.from(rover).forEach(function(element){
   element.style.width = squereSize+'px';
 });
 
-let sectedRover = "";
 const btnRover = document.getElementsByClassName("brnRover");
 Array.from(btnRover).forEach(function(element){
   element.addEventListener("click", function(){
@@ -34,7 +33,7 @@ Array.from(btnRover).forEach(function(element){
       btnRover[i].classList.remove("active");
     }
     this.classList.add('active');
-    sectedRover = this.id;
+    getRoverSelected();
   });
 });
 
@@ -61,13 +60,14 @@ function move(){
           btnRover[0].classList.add("active");
         }
         btnMove.classList.remove('disabled');
+        getRoverSelected();
       }, timetoRemove);
       printConsole("<span class='danger'><a>["+idRover+"]</a> has been destroyed - Only "+(4-howManyExploded)+" rover(s) avalible.</span>");
     }else{
       roverLeft+=20;
-		  rover[c].style.left = roverLeft + 'px';
+      rover[c].style.left = roverLeft + 'px';
     }
-	}else if(rover[c].classList.contains('left')){
+  }else if(rover[c].classList.contains('left')){
     if(roverLeft <= marginBody){
       btnMove.classList.add('disabled');
       rover[c].classList.add('explode');
@@ -80,13 +80,14 @@ function move(){
           btnRover[0].classList.add("active");
         }
         btnMove.classList.remove('disabled');
+        getRoverSelected();
       }, timetoRemove);
       printConsole("<span class='danger'><a>["+idRover+"]</a> has been destroyed - Only "+(4-howManyExploded)+" rover(s) avalible.</span>");
     }else{
       roverLeft-=20;
-		  rover[c].style.left = roverLeft + 'px';
+      rover[c].style.left = roverLeft + 'px';
     }
-	}else if(rover[c].classList.contains('down')){
+  }else if(rover[c].classList.contains('down')){
     if(roverTop >= mapHeight){
       btnMove.classList.add('disabled');
       rover[c].classList.add('explode');
@@ -99,13 +100,14 @@ function move(){
           btnRover[0].classList.add("active");
         }
         btnMove.classList.remove('disabled');
+        getRoverSelected();
       }, timetoRemove);
       printConsole("<span class='danger'><a>["+idRover+"]</a> has been destroyed - Only "+(4-howManyExploded)+" rover(s) avalible.</span>");
     }else{
       roverTop+=20;
       rover[c].style.top = roverTop + 'px';
     }
-	}else if(rover[c].classList.contains('up')){
+  }else if(rover[c].classList.contains('up')){
     if(roverTop <= marginBody){
       btnMove.classList.add('disabled');
       rover[c].classList.add('explode');
@@ -118,13 +120,14 @@ function move(){
           btnRover[0].classList.add("active");
         }
         btnMove.classList.remove('disabled');
+        getRoverSelected();
       }, timetoRemove);
       printConsole("<span class='danger'><a>["+idRover+"]</a> has been destroyed - Only "+(4-howManyExploded)+" rover(s) avalible.</span>");
     }else{
       roverTop-=20;
       rover[c].style.top = roverTop + 'px';
     }
-	}else{
+  }else{
     let idRover = rover[c].id;
     printConsole("<span class='danger'><a>["+idRover+"]</a> need to be landed first!</span>");
   }
@@ -153,6 +156,7 @@ function land(){
     let idRover = rover[c].id;
     printConsole("<span><a>["+idRover+"]</a> landed!</span>");
   }
+  getRoverSelected();
 }
 
 function isNumber(evt) {
@@ -170,24 +174,24 @@ function rotate(p){
    }
   let isInitial = rover[selectedEl].classList.contains('initial');
   if(!isInitial){
-    const elClass = rover[selectedEl].classList[1];
+    const elClass = rover[selectedEl];
     let updateClass = "";
     if(p == 'L'){
-      if(elClass == "up"){
+      if(elClass.classList.contains("up")){
         updateClass = "left";
-      }else if(elClass == "left"){
+      }else if(elClass.classList.contains("left")){
         updateClass = "down";
-      }else if(elClass == "down"){
+      }else if(elClass.classList.contains("down")){
         updateClass = "right";
       }else{
         updateClass = "up";
       }
     }else{
-      if(elClass == "up"){
+      if(elClass.classList.contains("up")){
           updateClass = "right";
-        }else if(elClass == "right"){
+        }else if(elClass.classList.contains("right")){
           updateClass = "down";
-        }else if(elClass == "down"){
+        }else if(elClass.classList.contains("down")){
           updateClass = "left";
         }else{
            updateClass = "up";
@@ -214,7 +218,7 @@ function printConsole(text){
   const controls = document.getElementById('controls');
   if(howManyExploded>=4){
     console.innerHTML = "<p> >_ "+text+"</p>";
-    controls.innerHTML = "<div class='container-xy'><p class='bye-msg'>You failed on the Rover Mars Mission =( </p><div>";
+    controls.innerHTML = "<div class='container-xy'><p class='bye-msg'>You failed on the Rover Mars Mission.</p><div class='fail'><img src='images/astronaut.gif'></div><div>";
   }else if(howManyExploded==3){
     console.innerHTML = "<p class='blink'> >_ "+text+"</p>";   
   }else{
@@ -222,7 +226,16 @@ function printConsole(text){
   }
   
 }
-
+function getRoverSelected(){
+  let selectedEl = "";
+  for(let i = 0; i < btnRover.length; i++ ){
+     if(btnRover[i].classList.contains('active')){
+       selectedEl = i;
+     }
+     rover[i].classList.remove('moving');
+   }
+   rover[selectedEl].classList.add('moving');
+}
 function start(){
   rover[0].style.top = squereSize+'px';
   rover[0].style.left = '-'+squereSize+'px';
