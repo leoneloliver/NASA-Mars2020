@@ -336,6 +336,8 @@ span a {
   height: 330px;
   padding-top: 100px;
   margin-top: 10px;
+  pointer-events: none;
+  user-select: none;
 }
 
 .fail img{
