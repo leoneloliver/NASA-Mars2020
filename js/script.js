@@ -58,12 +58,14 @@ function move() {
       let idRover = rover[c].id;
       setTimeout(function () {
         rover[c].remove();
-        btnRover[c].remove();
-        for (let i = 0; i < btnRover.length; i++) {
-          btnRover[0].classList.add("active");
-        }
-        btnMove.classList.remove('disabled');
-        getRoverSelected();
+        if(howManyExploded < 4){
+          btnRover[c].remove();
+          for (let i = 0; i < btnRover.length; i++) {
+            btnRover[0].classList.add("active");
+          }
+          btnMove.classList.remove('disabled');
+          getRoverSelected();
+        }  
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
@@ -78,12 +80,14 @@ function move() {
       let idRover = rover[c].id;
       setTimeout(function () {
         rover[c].remove();
-        btnRover[c].remove();
-        for (let i = 0; i < btnRover.length; i++) {
-          btnRover[0].classList.add("active");
-        }
-        btnMove.classList.remove('disabled');
-        getRoverSelected();
+        if(howManyExploded < 4){
+          btnRover[c].remove();
+          for (let i = 0; i < btnRover.length; i++) {
+            btnRover[0].classList.add("active");
+          }
+          btnMove.classList.remove('disabled');
+          getRoverSelected();
+        }  
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
@@ -98,12 +102,14 @@ function move() {
       let idRover = rover[c].id;
       setTimeout(function () {
         rover[c].remove();
-        btnRover[c].remove();
-        for (let i = 0; i < btnRover.length; i++) {
-          btnRover[0].classList.add("active");
-        }
-        btnMove.classList.remove('disabled');
-        getRoverSelected();
+        if(howManyExploded < 4){
+          btnRover[c].remove();
+          for (let i = 0; i < btnRover.length; i++) {
+            btnRover[0].classList.add("active");
+          }
+          btnMove.classList.remove('disabled');
+          getRoverSelected();
+        }  
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
@@ -118,12 +124,14 @@ function move() {
       let idRover = rover[c].id;
       setTimeout(function () {
         rover[c].remove();
-        btnRover[c].remove();
-        for (let i = 0; i < btnRover.length; i++) {
-          btnRover[0].classList.add("active");
-        }
-        btnMove.classList.remove('disabled');
-        getRoverSelected();
+        if(howManyExploded < 4){
+          btnRover[c].remove();
+          for (let i = 0; i < btnRover.length; i++) {
+            btnRover[0].classList.add("active");
+          }
+          btnMove.classList.remove('disabled');
+          getRoverSelected();
+        }  
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
