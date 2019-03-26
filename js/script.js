@@ -214,7 +214,7 @@ function printConsole(text){
   const controls = document.getElementById('controls');
   if(howManyExploded>=4){
     console.innerHTML = "<p> >_ "+text+"</p>";
-    controls.innerHTML = "<div class='container-xy'><p class='bye-msg'>Youfailed on the Rover Mars Mission =( </p><div>";
+    controls.innerHTML = "<div class='container-xy'><p class='bye-msg'>You failed on the Rover Mars Mission =( </p><div>";
   }else if(howManyExploded==3){
     console.innerHTML = "<p class='blink'> >_ "+text+"</p>";   
   }else{
