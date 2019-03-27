@@ -8,7 +8,7 @@ const minXY = 0;
 const timetoRemove = 3000;
 let howManyExploded = 0;
 const msg = ['X should be between ' + minXY + ' and ' + maxX + ' and Y between ' + minXY + ' and ' + maxY + ''];
-const msgDanger = ['has been destroyed it was driven off the plateau.','rover(s) avalible.','need to be landed first!',' landed!'];
+const msgDanger = ['has been destroyed it was driven off the plateau.','rover(s) available.','need to be landed first!',' landed!'];
 const msgEnd = ['You failed on the Rover Mars Mission.'];
 
 const rover = document.getElementsByClassName('rover');
