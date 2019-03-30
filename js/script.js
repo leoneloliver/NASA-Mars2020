@@ -1,7 +1,7 @@
 const mapHeight = 500;
 const mapWidth = 600;
 const marginBody = 20;
-const squereSize = 20;
+const squareSize = 20;
 const maxX = 24;
 const maxY = 29;
 const minXY = 0;
@@ -25,8 +25,8 @@ map.style.height = mapHeight + 'px';
 map.style.width = mapWidth + 'px';
 
 Array.from(rover).forEach(function (element) {
-  element.style.height = squereSize + 'px';
-  element.style.width = squereSize + 'px';
+  element.style.height = squareSize + 'px';
+  element.style.width = squareSize + 'px';
 });
 
 const btnRover = document.getElementsByClassName("brnRover");
@@ -69,7 +69,7 @@ function move() {
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
-      roverLeft += 20;
+      roverLeft += squareSize;
       rover[c].style.left = roverLeft + 'px';
     }
   } else if (rover[c].classList.contains('left')) {
@@ -91,7 +91,7 @@ function move() {
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
-      roverLeft -= 20;
+      roverLeft -= squareSize;
       rover[c].style.left = roverLeft + 'px';
     }
   } else if (rover[c].classList.contains('down')) {
@@ -113,7 +113,7 @@ function move() {
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
-      roverTop += 20;
+      roverTop += squareSize;
       rover[c].style.top = roverTop + 'px';
     }
   } else if (rover[c].classList.contains('up')) {
@@ -135,7 +135,7 @@ function move() {
       }, timetoRemove);
       printConsole("<span class='danger'><a>[" + idRover + "]</a> "+msgDanger[0]+ " " + (4 - howManyExploded) + " "+msgDanger[1]+"</span>");
     } else {
-      roverTop -= 20;
+      roverTop -= squareSize;
       rover[c].style.top = roverTop + 'px';
     }
   } else {
@@ -160,9 +160,9 @@ function land() {
   } else {
     rover[c].classList.remove('up', 'down', 'left', 'right', 'initial');
     rover[c].classList.add(classIt);
-    let h = (mapHeight - 20);
-    let x = h - (a * 20);
-    let y = b * 20;
+    let h = (mapHeight - squareSize);
+    let x = h - (a * squareSize);
+    let y = b * squareSize;
     rover[c].style.top = x + marginBody + 'px';
     rover[c].style.left = y + marginBody + 'px';
     let idRover = rover[c].id;
@@ -250,13 +250,13 @@ function getRoverSelected() {
 }
 
 function start() {
-  rover[0].style.top = squereSize + 'px';
-  rover[0].style.left = '-' + squereSize + 'px';
-  rover[1].style.top = squereSize + 'px';
-  rover[1].style.left = '-' + squereSize + 'px';
-  rover[2].style.top = squereSize + 'px';
-  rover[2].style.left = '-' + squereSize + 'px';
-  rover[3].style.top = squereSize + 'px';
-  rover[3].style.left = '-' + squereSize + 'px';
+  rover[0].style.top = squareSize + 'px';
+  rover[0].style.left = '-' + squareSize + 'px';
+  rover[1].style.top = squareSize + 'px';
+  rover[1].style.left = '-' + squareSize + 'px';
+  rover[2].style.top = squareSize + 'px';
+  rover[2].style.left = '-' + squareSize + 'px';
+  rover[3].style.top = squareSize + 'px';
+  rover[3].style.left = '-' + squareSize + 'px';
 }
 start();
